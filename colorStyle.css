@@ -1,0 +1,22 @@
+.red{
+    background: red;
+    color: white;
+    margin-left: 110px;
+    margin-right: 110px;
+    height: 200px;
+}
+.green{
+    background-color: green;
+    color: aqua;
+    margin-left: 110px;
+    margin-right: 110px;
+}
+.img1{
+    height:500px;
+    width: 1000px;
+    background-image: url(duck.jpg);
+   
+    background-size:contain ;
+   
+
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body {
+            background: url(bgbg.jpg);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .x{
+            height: 100vh;
+            width: 40vw;
+        }
+        .login{
+            height: 100vh;
+            width: 60vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loginin1{
+            height: 600px;
+            width: 450px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile{
+            height: 125px;
+            width: 125px;
+            border-radius: 50%;
+            background: url(pro.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+        }
+        .heading{
+            color: white;
+            font-size: 40px;
+            text-align: left;
+            margin-left: 5px;
+            margin-bottom: 20px;
+        }
+        input{
+            height: 40px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        label{
+            color: white;
+            font-size: 16px;            
+        }
+        .fp{
+            color: white;
+        }
+        .btn{
+            margin-top: 40px;
+            height: 50px;
+            width: 300px;
+            background-color: #55c2da;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            color: white;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="x"></div>
+    <div class="login">
+        <div class="loginin">
+            <div class="loginin1">
+                <div class="profile"></div>
+                <div class="heading">Login</div>
+                <div class="inputs">
+                <label for="input1">Email</label><br>
+                <input class="input1 input" type="text"><br>
+                <label for="input2">Password</label><br>
+                <input class="input2 input" type="text"><br>
+                <div class="fp">Forgot Password?</div>
+            </div>
+            <button class="btn">Submit</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

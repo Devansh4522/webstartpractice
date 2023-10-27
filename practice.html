@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Digital Circuits - Conversion of Flip-Flops</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta name="Keywords" content="Flops, Flip, of, Conversion, Circuits, Digital,  HTML, Python, CSS, SQL, JavaScript, Perl, PHP, Java, C, C++, C#, jQuery, Bootstrap, Colors, XML, MySQL, Icons, NodeJS, React, Graphics, Angular, R, AI, Git, Machine Learning, Data Science, Tutorials, Programming, Data Structure, Algorithms, Web Development, Training, Learning, Quiz, Exercises, Courses, References, Computer Science, Management, Finance, Examples, Articles, Demos, Tips, Website">
+<meta name="Description" content="Digital Circuits Conversion of Flip Flops - In previous chapter, we discussed the four flip-flops, namely SR flip-flop, D flip-flop, JK flip-flop & T flip-flop. We can convert one flip-flop into the remaining three flip-flops by including some additional logic. So, there will be total of twelve flip-flop conversions.">
+<link rel="canonical" href="https://www.tutorialspoint.com/digital_circuits/digital_circuits_conversion_of_flip_flops.htm" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" >
+<meta property="og:image" content="https://www.tutorialspoint.com/images/tp_big_logo.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="234">
+<meta property="og:title" content="Digital Circuits - Conversion of Flip-Flops">
+<meta property="og:description" content="Digital Circuits Conversion of Flip Flops - In previous chapter, we discussed the four flip-flops, namely SR flip-flop, D flip-flop, JK flip-flop & T flip-flop. We can convert one flip-flop into the remaining three flip-flops by including some additional logic. So, there will be total of twelve flip-flop conversions.">
+<link id="style-switch" rel="stylesheet" href="/static/css/purge/style-min.css?v=6.03">
+<link rel="stylesheet" href="/static/css/custom.css?v=8.19.1">
+<style>ul.toc li.heading, .back-top, a.demo, .home-intro-sub{background:#01395a; color:#fff;}  ul.toc li.heading:hover{background:#01395a;} .btn-grey-border{background:#01395a; color:#fff; border:1px solid #01395a;} .course-box{background:#01395a;} .qa-content{padding:0px 0px 0px 0px!important;} a.demo{background:#01395a!important;}
+</style>
+</head>
+<body>
+<div class="navbar-top navbar-dark d-xl-block py-2 mx-2 mx-md-4 rounded-bottom-4">
+	<div class="container-fluid px-3 px-xl-0">
+		<div class="d-lg-flex justify-content-lg-between align-items-center top-nav-links">
+			<ul class="nav align-items-center justify-content-center">
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Home Page">
+					<a class="nav-link" href="https://www.tutorialspoint.com/index.htm"><i class="fal fa-home-alt me-1"></i> Home</a>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Online Coding System">
+					<a class="nav-link" href="https://www.tutorialspoint.com/codingground.htm"><i class="fal fa-code me-1"></i> Coding Ground</a>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Job Openings">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/about/about_careers.htm"><i class="fal fa-suitcase me-1"></i> Jobs</a></span>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Digital Whiteboard">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/whiteboard.htm"><i class="fal fa-chalkboard me-1"></i> Whiteboard</a></span>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Developer's Tools">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/online_dev_tools.htm"><i class="fal fa-tools me-1"></i> Tools</a></span>
+				</li>
+				<li class="nav-item" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Corporate Trainings">
+					<span><a class="nav-link" href="https://www.tutorialspoint.com/business/index.asp"><i class="fal fa-chalkboard-user me-1"></i> Corporate Training</a></span>
+				</li>
+			</ul>
+			<!-- Navbar top Right-->
+			<div class="d-flex align-items-center justify-content-center">
+				<div class="navbar-nav ms-2">
+				  <div class="modeswitch-wrap" id="darkModeSwitch">
+					 <div class="modeswitch-item">
+						<div class="modeswitch-icon">
+							<i class="fal fa-sun toggle-sun"></i>
+							<i class="fal fa-moon toggle-moon"></i>
+						</div>
+					 </div>
+				  </div>
+				</div>
+				<div class="me-3c top-nav-social">
+				  <a class="nav-link" href="https://www.tutorialspoint.com/market/teach_with_us.jsp" target="_self"  data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Teach with us"><i class="fal fa-users-class me-2"></i> <span>Teach with us</span></a>
+				</div>
+				<ul class="list-unstyled d-flex mb-0 top-nav-social">
+					<li><a class="px-2 nav-link" rel="nofollow" aria-label="Facebook" href="https://www.facebook.com/tutorialspointindia" target="_blank"   data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Facebook"><i class="fab fa-facebook"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" aria-label="Instagram" href="https://www.instagram.com/tutorialspoint_/" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Instagram"><i class="fab fa-instagram"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" aria-label="Twitter" href="https://twitter.com/tutorialspoint" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Twitter"><i class="fab fa-twitter"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" aria-label="YouTube" href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint Youtube"><i class="fab fa-youtube"></i></a> </li>
+					<li><a class="px-2 nav-link" rel="nofollow" aria-label="LinkedIn" href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEkqX2eckF__gAAAX-wMwEYvrsjBVbEtWQd4pgEdVSzkL22Nik1KEpY_ECWLKDGc41z8IOZWr2Bb0fvJplT60NPBtSw87J6QCpc7wD4qQ3iU13n6xJtBxME5o05Wmpg5JPm5YY=&originalReferer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Ftutorialspoint" target="_blank"  data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom" data-bs-original-title="Tutorialspoint LinkedIn"><i class="fab fa-linkedin-in"></i></a> </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<header class="navbar-light navbar-sticky header-static">
+	<nav class="navbar navbar-expand-xl">
+		<div class="container-fluid px-3 px-xl-4">
+			<a class="navbar-brand" href="https://www.tutorialspoint.com/index.htm"><img class="light-mode-item navbar-brand-item" src="/static/images/logo.png?v2" alt="logo"> <img class="dark-mode-item navbar-brand-item" src="/static/images/logo-w.png?v2" alt="logo"></a>
+			<button class="navbar-toggler-toc collapsed ms-auto-toc" type="button"  id="btn-tutorial-toc">
+				<span><i class="fal fa-bars"></i></span>
+			</button>
+			<button class="navbar-toggler ms-auto" type="button" id="btn-menu-collapse">
+				<i class="fal fa-user-circle fs-user-size"></i>
+			</button>
+			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll me-auto">
+					<li class="nav-item nav-xs-login">
+						<a class="nav-link"><i class="fal fa-sign-in me-2"></i>Login</a>
+					</li>
+					<li class="nav-item dropdown dropdown-menu-shadow-stacked">
+						<a href="javascript:void(0);" class="nav-link" id="categoryMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fal fa-th-large fs-5 me-xl-1 d-xl-none"></i>
+							<i class="fal fa-th me-1 d-none d-xl-inline-block"></i>
+							<span class="d-xl-inline-block">Category <i class="fal fa-angle-down"></i></span>
+						</a>
+												<ul class="dropdown-menu categories-menu shadow" id="categories-menu">
+							<li><a href="/academic_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Academic Tutorials</a></li>
+							<li><a href="/big_data_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Big Data &amp; Analytics </a></li>
+							<li><a href="/computer_programming_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Computer Programming </a></li>
+							<li><a href="/computer_science_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Computer Science </a></li>
+							<li><a href="/database_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Databases </a></li>
+							<li><a href="/devops_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> DevOps </a></li>
+							<li><a href="/digital_marketing_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Digital Marketing </a></li>
+							<li><a href="/engineering_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Engineering Tutorials </a></li>
+							<li><a href="/upsc_ias_exams.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Exams Syllabus </a></li>
+							<li><a href="/famous_monuments.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Famous Monuments </a></li>
+							<li><a href="/gate_exams_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> GATE Exams </a></li>
+							<li><a href="/latest_technologies.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Latest Technologies </a></li>
+							<li><a href="/machine_learning_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Machine Learning </a></li>
+							<li><a href="/mainframe_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Mainframe Development </a></li>
+							<li><a href="/management_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Management Tutorials </a></li>
+							<li><a href="/maths_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Mathematics Tutorials</a></li>
+							<li><a href="/microsoft_technologies_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Microsoft Technologies </a></li>
+							<li><a href="/misc_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Misc tutorials </a></li>
+							<li><a href="/mobile_development_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Mobile Development </a></li>
+							<li><a href="/java_technology_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Java Technologies </a></li>
+							<li><a href="/python_technologies_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Python Technologies </a></li>
+							<li><a href="/sap_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> SAP Tutorials </a></li>
+							<li><a href="/scripting_lnaguage_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Programming Scripts </a></li>
+							<li><a href="/selected_reading.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Selected Reading </a></li>
+							<li><a href="/software_quality_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Software Quality </a></li>
+							<li><a href="/soft_skill_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Soft Skills </a></li>
+							<li><a href="/telecom_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Telecom Tutorials </a></li>
+							<li><a href="/upsc_ias_exams.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> UPSC IAS Exams </a></li>
+							<li><a href="/web_development_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Web Development </a></li>
+							<li><a href="/sports_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Sports Tutorials </a></li>
+							<li><a href="/xml_technologies_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> XML Technologies </a></li>
+							<li><a href="/multi_language_tutorials.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Multi-Language</a></li>
+							<li><a href="/questions_and_answers.htm" class="dropdown-item"><i class="fal fa-angle-right"></i> Interview Questions</a></li>
+						</ul>
+											</li>
+				</ul>
+				<div class="navbar-collapse">
+					<div class="col-xl-9">
+						<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+							<div class="nav-item w-100">
+								<form class="rounded position-relative">
+									<input class="form-control pe-4 bg-secondary bg-opacity-10 border-0 search-strings" type="search" placeholder="Search tutorials ..." id="search-strings" name="key" data-result="search-results" aria-label="Search">
+									<button type="button" id="btnSearch" class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y"><i class="fal fa-search fs-6"></i></button>
+									<div class="search-box search-box-inn" id="search-results"></div>
+									<div class="clear"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="navbar-nav navbar-nav-scroll">
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/latest/prime-packs" target="_self"><i class="fal fa-cubes me-1"></i>Prime Packs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/market/index.asp" target="_self"><i class="fal fa-play-circle me-1"></i>Courses</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/latest/ebooks" target="_self"><i class="fal fa-book-reader me-1"></i>eBooks</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.tutorialspoint.com/tutorialslibrary.htm" target="_self"><i class="fal fa-books me-1"></i>Library</a>
+					</li>
+					<li class="nav-item">
+					        <a class="nav-link" href="https://www.tutorialspoint.com/articles/index.php" target="_self"><i class="fal fa-money-check-edit me-1"></i> Articles</a>
+					</li>
+				</ul>
+			</div>
+			<div class="navbar-nav d-lg-inline-block nav-login">
+			   <a href="https://www.tutorialspoint.com/market/login.asp" class="btn btn-grey-border mb-0"><i class="fal fa-sign-in me-2"></i>Login</a>
+			</div>
+		</div>
+	</nav>
+</header>
+<main class="bg-light pb-4">
+<div class="container-fluid mt-3 px-3 px-xl-3">
+<div class="row g-4">
+<div class="col-sm-12 col-md-4 col-xl-3 ps-0 pe-0 collapse tutorial-toc" id="tocCollapse">
+<div class="card card-body bg-light pt-0 toc-nav">
+<script src="/theme/js/jquery.min.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\(","\)"]] },
+"HTML-CSS": {
+  linebreaks: { automatic: true, width: "container" }
+}
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<div class="mini-logo">
+<img src="/digital_circuits/images/digital-circuits-mini-logo.jpg" alt="Digital Circuits Tutorial" />
+</div>
+<ul class="toc chapters">
+<li class="heading">Digital Circuits Tutorial</li>
+<li><a href="/digital_circuits/index.htm">Home</a></li>
+<li><a href="/digital_circuits/digital_circuits_number_systems.htm">Number Systems</a></li>
+<li><a href="/digital_circuits/digital_circuits_base_conversions.htm">Base Conversions</a></li>
+<li><a href="/digital_circuits/digital_circuits_binary_numbers_representation.htm">Binary Numbers Representation</a></li>
+<li><a href="/digital_circuits/digital_circuits_signed_binary_arithmetic.htm">Signed Binary Arithmetic</a></li>
+<li><a href="/digital_circuits/digital_circuits_codes.htm">Codes</a></li>
+<li><a href="/digital_circuits/digital_circuits_error_detection_correction_codes.htm">Error Detection &amp; Correction Codes</a></li>
+<li><a href="/digital_circuits/digital_circuits_boolean_algebra.htm">Boolean Algebra</a></li>
+<li><a href="/digital_circuits/digital_circuits_canonical_standard_forms.htm">Canonical and Standard Forms</a></li>
+<li><a href="/digital_circuits/digital_circuits_k_map_method.htm">K-Map Method</a></li>
+<li><a href="/digital_circuits/digital_circuits_quine_mccluskey_tabular_method.htm">Quine-McCluskey Tabular Method</a></li>
+<li><a href="/digital_circuits/digital_circuits_logic_gates.htm">Logic Gates</a></li>
+<li><a href="/digital_circuits/digital_circuits_two_level_logic_realization.htm">Two-Level Logic Realization</a></li>
+<li><a href="/digital_circuits/digital_combinational_circuits.htm">Combinational Circuits</a></li>
+<li><a href="/digital_circuits/digital_arithmetic_circuits.htm">Arithmetic Circuits</a></li>
+<li><a href="/digital_circuits/digital_circuits_decoders.htm">Decoders</a></li>
+<li><a href="/digital_circuits/digital_circuits_encoders.htm">Encoders</a></li>
+<li><a href="/digital_circuits/digital_circuits_multiplexers.htm">Multiplexers</a></li>
+<li><a href="/digital_circuits/digital_circuits_demultiplexers.htm">De-Multiplexers</a></li>
+<li><a href="/digital_circuits/digital_circuits_programmable_logic_devices.htm">Programmable Logic Devices</a></li>
+<li><a href="/digital_circuits/digital_circuits_threshold_logic.htm">Threshold Logic</a></li>
+<li><a href="/digital_circuits/digital_circuits_sequential_circuits.htm">Sequential Circuits</a></li>
+<li><a href="/digital_circuits/digital_circuits_latches.htm">Latches</a></li>
+<li><a href="/digital_circuits/digital_circuits_flip_flops.htm">Flip-Flops</a></li>
+<li><a href="/digital_circuits/digital_circuits_conversion_of_flip_flops.htm">Conversion of Flip-Flops</a></li>
+<li><a href="/digital_circuits/digital_circuits_shift_registers.htm">Shift Registers</a></li>
+<li><a href="/digital_circuits/digital_circuits_application_of_shift_registers.htm">Application of Shift Registers</a></li>
+<li><a href="/digital_circuits/digital_circuits_counters.htm">Counters</a></li>
+<li><a href="/digital_circuits/digital_circuits_finite_state_machines.htm">Finite State Machines</a></li>
+<li><a href="/digital_circuits/digital_circuits_algorithmic_state_machine_charts.htm">Algorithmic State Machine Charts</a></li>
+</ul>
+<ul class="toc chapters">
+<li class="heading">Digital Circuits Resources</li>
+<li><a href="/digital_circuits/digital_circuits_quick_guide.htm">Digital Circuits - Quick Guide</a></li>
+<li><a href="/digital_circuits/digital_circuits_useful_resources.htm">Digital Circuits - Useful Resources</a></li>
+<li><a href="/digital_circuits/digital_circuits_discussion.htm">Digital Circuits - Discussion</a></li>
+</ul>
+<ul class="toc reading">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+<div id="stickyparent" class="d-none d-sm-block">
+<div style="height:250px;width:300px;" id="sticky-ad">
+<div id="430c9911-782f-495d-88f9-69f58ca8c9a4" class="_ap_apex_ad" >
+<script>
+var adpushup = adpushup || {};
+adpushup.que = adpushup.que || [];
+adpushup.que.push(function() {
+adpushup.triggerAd("430c9911-782f-495d-88f9-69f58ca8c9a4");
+});
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tutorial ToC Ends Here -->
+
+<!-- Tutorial Content Starts Here -->
+<div class="col-sm-12 col-md-8 col-xl-6 rounded-3 tutorial-content" id="mainContent">
+<h1>Digital Circuits - Conversion of Flip-Flops</h1>
+<hr />
+<div id="adp_top_ads" style="text-align:center !important;overflow: hidden; max-height:99px;min-height:99px"></div>
+<script>
+     var adPos = document.getElementById('adp_top_ads');
+     var ad_id_720 = "8014640d-fd34-4b2e-9b1b-cc67234a2325";
+     var ad_id_650 = "2d1bb2c4-eb72-471d-9c80-1bf5514728c1";
+     var ad_id_300 = "df94a1a9-ae2f-432d-9a92-d93823ff4503";
+     var width = window.innerWidth;
+     var ad_id = ad_id_720;
+     if( width <= 768 ){
+        ad_id =  ad_id_300;
+        adPos.style.minHeight = "260px";
+        adPos.style.maxHeight = "260px";
+     }else if( width <= 1435 ){
+        ad_id =  ad_id_650;
+     }
+     adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+     var adpushup = adpushup || {};
+     adpushup.que = adpushup.que || [];
+     adpushup.que.push(function() {
+     adpushup.triggerAd(ad_id);
+     });
+</script>
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn">
+<a href="/digital_circuits/digital_circuits_flip_flops.htm"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/digital_circuits/digital_circuits_shift_registers.htm">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+</div>
+<div class="clearer"></div>
+<p>In previous chapter, we discussed the four flip-flops, namely SR flip-flop, D flip-flop, JK flip-flop &amp; T flip-flop. We can convert one flip-flop into the remaining three flip-flops by including some additional logic. So, there will be total of twelve <b>flip-flop conversions</b>.</p>
+<p>Follow these <b>steps</b> for converting one flip-flop to the other.</p>
+<ul class="list">
+<li><p>Consider the <b>characteristic table</b> of desired flip-flop.</p></li>
+<li><p>Fill the excitation values (inputs) of given flip-flop for each combination of present state and next state. The <b>excitation table</b> for all flip-flops is shown below.</p></li>
+</ul>
+<table style="text-align:center" class="table table-bordered">
+<tr>
+<th style="text-align:center">Present State</th>
+<th style="text-align:center">Next State</th>
+<th style="text-align:center" colspan="2">SR flip-flop inputs</th>
+<th style="text-align:center">D flip-flop input</th>
+<th style="text-align:center" colspan="2">JK flip-flop inputs</th>
+<th style="text-align:center">T flip-flop input</th>
+</tr>
+<tr>
+<td><b>Q(t)</b></td>
+<td><b>Q(t+1)</b></td>
+<td><b>S</b></td>
+<td><b>R</b></td>
+<td><b>D</b></td>
+<td><b>J</b></td>
+<td><b>K</b></td>
+<td><b>T</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>x</td>
+<td>0</td>
+<td>0</td>
+<td>x</td>
+<td>0</td>
+</tr>
+<tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>x</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>x</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>x</td>
+<td>0</td>
+<td>1</td>
+<td>x</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+<ul class="list">
+<li><p>Get the <b>simplified expressions</b> for each excitation input. If necessary, use Kmaps for simplifying.</p></li>
+<li><p>Draw the <b>circuit diagram</b> of desired flip-flop according to the simplified expressions using given flip-flop and necessary logic gates.</p></li>
+</ul>
+<p>Now, let us convert few flip-flops into other. Follow the same process for remaining flipflop conversions.</p>
+<h2>SR Flip-Flop to other Flip-Flop Conversions</h2>
+<p>Following are the three possible conversions of SR flip-flop to other flip-flops.</p>
+<ul class="list">
+<li>SR flip-flop to D flip-flop</li>
+<li>SR flip-flop to JK flip-flop</li>
+<li>SR flip-flop to T flip-flop</li>
+</ul>
+<h3>SR flip-flop to D flip-flop conversion</h3>
+<p>Here, the given flip-flop is SR flip-flop and the desired flip-flop is D flip-flop. Therefore, consider the following <b>characteristic table</b> of D flip-flop.</p>
+<table style="text-align:center; width:70%" class="table table-bordered" align="center">
+<tr>
+<th style="text-align:center">D flip-flop input</th>
+<th style="text-align:center">Present State</th>
+<th style="text-align:center">Next State</th>
+</tr>
+<tr>
+<td><b>D</b></td>
+<td><b>Q(t)</b></td>
+<td><b>Q(t + 1)</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</table>
+<p>We know that SR flip-flop has two inputs S &amp; R. So, write down the excitation values of SR flip-flop for each combination of present state and next state values. The following table shows the characteristic table of D flip-flop along with the <b>excitation inputs</b> of SR flip-flop.</p>
+<table style="text-align:center" class="table table-bordered">
+<tr>
+<th style="text-align:center">D flip-flop input</th>
+<th style="text-align:center">Present State</th>
+<th style="text-align:center">Next State</th>
+<th style="text-align:center" colspan="2">SR flip-flop inputs</th>
+</tr>
+<tr>
+<td><b>D</b></td>
+<td><b>Q(t)</b></td>
+<td><b>Q(t + 1)</b></td>
+<td><b>S</b></td>
+<td><b>R</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>x</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>x</td>
+<td>0</td>
+</tr>
+</table>
+<p>From the above table, we can write the <b>Boolean functions</b> for each input as below.</p>
+<p>$$S=m_{2}+d_{3}$$</p>
+<p>$$R=m_{1}+d_{0}$$</p>
+<p>We can use 2 variable K-Maps for getting simplified expressions for these inputs. The <b>k-Maps</b> for S &amp; R are shown below.</p>
+<img src="/digital_circuits/images/conversion_of_flipflop.jpg" alt="Conversion of Flip-Flop" />
+<p>So, we got S = D &amp; R = D' after simplifying. The <b>circuit diagram</b> of D flip-flop is shown in the following figure.</p>
+<img src="/digital_circuits/images/circuit_diagram_of_d_flip_flop.jpg" alt="Circuit Diagram of D Flip-Flop" />
+<p>This circuit consists of SR flip-flop and an inverter. This inverter produces an output, which is complement of input, D. So, the overall circuit has single input, D and two outputs Q(t) &amp; Q(t)'. Hence, it is a <b>D flip-flop</b>. Similarly, you can do other two conversions.</p>
+<h2>D Flip-Flop to other Flip-Flop Conversions</h2>
+<p>Following are the three possible conversions of D flip-flop to other flip-flops.</p>
+<ul class="list">
+<li>D flip-flop to T flip-flop</li>
+<li>D flip-flop to SR flip-flop </li>
+<li>D flip-flop to JK flip-flop</li>
+</ul>
+<h3>D flip-flop to T flip-flop conversion</h3>
+<p>Here, the given flip-flop is D flip-flop and the desired flip-flop is T flip-flop. Therefore, consider the following <b>characteristic table</b> of T flip-flop.</p>
+<table style="text-align:center; width:70%" class="table table-bordered" align="center">
+<tr>
+<th>T flip-flop input</th>
+<th>Present State</th>
+<th>Next State</th>
+</tr>
+<tr>
+<td><b>T</b></td>
+<td><b>Q(t)</b></td>
+<td><b>Q(t + 1)</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</table>
+<p>We know that D flip-flop has single input D. So, write down the excitation values of D flip-flop for each combination of present state and next state values. The following table shows the characteristic table of T flip-flop along with the <b>excitation input</b> of D flip-flop.</p>
+<table style="text-align:center" class="table table-bordered">
+<tr>
+<th style="text-align:center">T flip-flop input</th>
+<th style="text-align:center">Present State</th>
+<th style="text-align:center">Next State</th>
+<th style="text-align:center">D flip-flop input</th>
+</tr>
+<tr>
+<td><b>T</b></td>
+<td><b>Q(t)</b></td>
+<td><b>Q(t + 1)</b></td>
+<td><b>D</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+<p>From the above table, we can directly write the <b>Boolean function</b> of D as below.</p>
+<p>$$D=T\oplus Q\left ( t \right )$$</p>
+<p>So, we require a two input Exclusive-OR gate along with D flip-flop. The <b>circuit diagram</b> of T flip-flop is shown in the following figure.</p>
+<img src="/digital_circuits/images/circuit_diagram_of_t_flip_flop.jpg" alt="Circuit Diagram of T Flip-Flop" />
+<p>This circuit consists of D flip-flop and an Exclusive-OR gate. This Exclusive-OR gate produces an output, which is Ex-OR of T and Q(t). So, the overall circuit has single input, T and two outputs Q(t) &amp; Q(t)’. Hence, it is a <b>T flip-flop</b>. Similarly, you can do other two conversions.</p>
+<h2>JK Flip-Flop to other Flip-Flop Conversions</h2>
+<p>Following are the three possible conversions of JK flip-flop to other flip-flops.</p>
+<ul class="list">
+<li>JK flip-flop to T flip-flop</li>
+<li>JK flip-flop to D flip-flop</li>
+<li>JK flip-flop to SR flip-flop</li>
+</ul>
+<h3>JK flip-flop to T flip-flop conversion</h3>
+<p>Here, the given flip-flop is JK flip-flop and the desired flip-flop is T flip-flop. Therefore, consider the following <b>characteristic table</b> of T flip-flop.</p>
+<table style="text-align:center; width:70%" class="table table-bordered" align="center">
+<tr>
+<th style="text-align:center">T flip-flop input</th>
+<th style="text-align:center">Present State</th>
+<th style="text-align:center">Next State</th>
+</tr>
+<tr>
+<td><b>T</b></td>
+<td><b>Q(t)</b></td>
+<td><b>Q(t + 1)</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</table>
+<p>We know that JK flip-flop has two inputs J &amp; K. So, write down the excitation values of JK flip-flop for each combination of present state and next state values. The following table shows the characteristic table of T flip-flop along with the <b>excitation inputs</b> of JK flipflop.</p>
+<table style="text-align:center" class="table table-bordered">
+<tr>
+<th style="text-align:center">T flip-flop input</th>
+<th style="text-align:center">Present State</th>
+<th style="text-align:center">Next State</th>
+<th style="text-align:center" colspan="2">JK flip-flop inputs</th>
+</tr>
+<tr>
+<td><b>T</b></td>
+<td><b>Q(t)</b></td>
+<td><b>Q(t + 1)</b></td>
+<td><b>J</b></td>
+<td><b>K</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>x</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>x</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>x</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>x</td>
+<td>1</td>
+</tr>
+</table>
+<p>From the above table, we can write the <b>Boolean functions</b> for each input as below.</p>
+<p>$$J=m_{2}+d_{1}+d_{3}$$</p>
+<p>$$K=m_{3}+d_{0}+d_{2}$$</p>
+<p>We can use 2 variable K-Maps for getting simplified expressions for these two inputs. The <b>k-Maps</b> for J &amp; K are shown below.</p>
+<img src="/digital_circuits/images/k_map_for_j_k.jpg" alt="K Map for J and K" />
+<p>So, we got, J = T &amp; K = T after simplifying. The <b>circuit diagram</b> of T flip-flop is shown in the following figure.</p>
+<img src="/digital_circuits/images/circuit_diagram_of_t_flip_flop_with_jk_flipflop.jpg" alt="Circuit Diagram of T Flip-Flop with JK Flip-Flop" />
+<p>This circuit consists of JK flip-flop only. It doesn’t require any other gates. Just connect the same input T to both J &amp; K. So, the overall circuit has single input, T and two outputs Q(t) &amp; Q(t)’. Hence, it is a <b>T flip-flop</b>. Similarly, you can do other two conversions.</p>
+<h2>T Flip-Flop to other Flip-Flop Conversions</h2>
+<p>Following are the three possible conversions of T flip-flop to other flip-flops.</p>
+<ul class="list">
+<li>T flip-flop to D flip-flop</li>
+<li>T flip-flop to SR flip-flop</li>
+<li>T flip-flop to JK flip-flop</li>
+</ul>
+<h3>T flip-flop to D flip-flop conversion</h3>
+<p>Here, the given flip-flop is T flip-flop and the desired flip-flop is D flip-flop. Therefore, consider the characteristic table of D flip-flop and write down the excitation values of T flip-flop for each combination of present state and next state values. The following table shows the <b>characteristic table</b> of D flip-flop along with the <b>excitation input</b> of T flip-flop.</p>
+<table style="text-align:center" class="table table-bordered">
+<tr>
+<th style="text-align:center">D flip-flop input</th>
+<th style="text-align:center">Present State</th>
+<th style="text-align:center">Next State</th>
+<th style="text-align:center" colspan="2">T flip-flop input</th>
+</tr>
+<tr>
+<td><b>D</b></td>
+<td><b>Q(t)</b></td>
+<td><b>Q(t + 1)</b></td>
+<td><b>T</b></td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</table>
+<p>From the above table, we can directly write the Boolean function of T as below.</p>
+<p>$$T=D\oplus Q\left ( t \right )$$</p>
+<p>So, we require a two input Exclusive-OR gate along with T flip-flop. The <b>circuit diagram</b> of D flip-flop is shown in the following figure.</p>
+<img src="/digital_circuits/images/t_flipflop_circuit_diagram.jpg" alt="T Flip-Flop circuit Diagram" />
+<p>This circuit consists of T flip-flop and an Exclusive-OR gate. This Exclusive-OR gate produces an output, which is Ex-OR of D and Q(t). So, the overall circuit has single input, D and two outputs Q(t) &amp; Q(t)’. Hence, it is a <b>D flip-flop</b>. Similarly, you can do other two conversions.</p>
+<div class="d-flex justify-content-between border-bottom border-top py-2" id="bottom_navigation">
+<a href="/digital_circuits/digital_circuits_flip_flops.htm" class="pre-btn"><i class="fal fa-chevron-circle-left"></i> Previous Page</a>
+<a id="print-page" href="#" class="pre-btn d-none d-sm-block"><i class="fal fa-print"></i> Print Page</a>
+<a href="/digital_circuits/digital_circuits_shift_registers.htm" class="nxt-btn">Next Page <i class="fal fa-chevron-circle-right"></i>&nbsp;</a>
+</div>
+			<div class="google-bottom-ads" id="google-bottom-ads">
+				<div>Advertisements</div>
+				<div>
+					<div id="adp_bottom_ads"></div>
+					<script>
+						var adPos = document.getElementById('adp_bottom_ads');
+						var mobile_ad_id = "6d621d7e-9531-4f26-810f-68af67dc6366";
+						var desktop_ad_id = "4951d1d6-24d4-4a31-afb7-2c22c489eae1";
+						var adpushup = adpushup || {};
+						adpushup.que = adpushup.que || [];
+						adpushup.que.push(function() {
+							var ad_id = window.innerWidth <= 768 ? mobile_ad_id : desktop_ad_id;
+							adPos.innerHTML = '<div id="' + ad_id + '" class="_ap_apex_ad"></div>';
+							adpushup.triggerAd(ad_id);
+						});
+					</script>
+				</div>
+			</div>
+		</div>
+	<!-- Tutorial Content Ends Here -->
+
+	<!-- Right Column Starts Here -->
+	<div class="col-sm-6 col-md-3 col-xl-3">
+				<div class="data-sticky" id="google-right-ads">
+			<div class="google-right-ad" style="margin: 0px auto !important;margin-top:5px;min-height:280px!important">
+				<div id="2557b9b8-4c1f-4586-a953-f123dbd2ed8e" class="_ap_apex_ad">
+					<script>
+						if( window.innerWidth > 768 ){
+						   var adpushup = adpushup || {};
+						   adpushup.que = adpushup.que || [];
+						   adpushup.que.push(function() {
+						   adpushup.triggerAd("2557b9b8-4c1f-4586-a953-f123dbd2ed8e");
+						   });
+						}
+					</script>
+				</div>
+			</div>
+			<div class="google-right-ad" style="margin-top:16px;min-height:280px!important">
+				<div id="b078e6a3-e1b7-40fe-b690-11ac441ad2d5" class="_ap_apex_ad">
+					<script>
+						if( window.innerWidth > 768 ){
+						   var adpushup = adpushup || {};
+						   adpushup.que = adpushup.que || [];
+						   adpushup.que.push(function() {
+						   adpushup.triggerAd("b078e6a3-e1b7-40fe-b690-11ac441ad2d5");
+						   });
+						}
+					</script>
+				</div>
+			</div>
+			<div class="google-right-ad" style="margin-top:16px;margin-bottom:15px;min-height:600px!important">
+				<div id="8f8814c2-d64c-4d26-9cb9-543653c0b48f" class="_ap_apex_ad">
+					<script>
+						if( window.innerWidth > 768 ){
+						   var adpushup = adpushup || {};
+						   adpushup.que = adpushup.que || [];
+						   adpushup.que.push(function() {
+						   adpushup.triggerAd("8f8814c2-d64c-4d26-9cb9-543653c0b48f");
+						   });
+						}
+					</script>
+				</div>
+			</div>
+			<!-- Right Column Ends Here -->
+		</div>
+	</div>
+</div>
+</div>
+</main>
+
+
+
+<footer class="py-3 card navbar-dark border-top" id="footer">
+	<!-- ======================= Annual Membership -->
+	<div class="py-4 bg-white">
+		<div class="container">
+			<div class="row g-4">
+			<!-- Action box item -->
+				<div class="col-lg-6 position-relative overflow-hidden">
+					<a href="https://www.tutorialspoint.com/market/business/subscription.jsp" target="_blank" title="Annual Membership">
+						<div class="bg-primary bg-opacity-10 rounded-3 p-5 h-100">
+							<div class="position-absolute bottom-0 end-0 me-3">
+								<img src="/images/annual-membership-wraps.svg" class="h-100px h-sm-200px" alt="">
+							</div>
+							<div class="row">
+								<div class="col-sm-8 position-relative">
+									<h3 class="mb-1">Annual Membership</h3>
+									<p class="mb-3 h5 fw-light lead">Enjoy unlimited access on 5500+ Hand Picked Quality Video Courses</p>
+									<div class="btn btn-business mb-0"><i class="fal fa-check"></i> Subscribe Now</div>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Action box item -->
+				<div class="col-lg-6 position-relative overflow-hidden">
+					<a href="https://www.tutorialspoint.com/business/index.asp#demoRequest" target="_blank" title="Business Pack">
+						<div class="bg-secondary rounded-3 bg-opacity-10 p-5 h-100">
+							<div class="position-absolute bottom-0 end-0 me-3">
+								<img src="/images/business-banner-wraps.svg" class="h-100px h-sm-200px" alt="">
+							</div>
+							<div class="row">
+								<div class="col-sm-8 position-relative">
+									<h3 class="mb-1">Training for a Team</h3>
+									<p class="mb-3 h5 fw-light lead">Affordable solution to train a team and make them project ready.</p>
+									<div class="btn btn-warning mb-0"><i class="fal fa-check me-1"></i> Request a Demo</div>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ======================= Annual Membership -->
+	<div class="container">
+		<div class="row g-4">
+			<div class="col-lg-12 text-center">
+				<a class="me-0 pb-4" href="https://www.tutorialspoint.com">
+					<img class="light-mode-item h-100px" src="/static/images/logo-color-footer.png" alt="Tutorials Point">
+					<img class="dark-mode-item h-100px" src="/static/images/logo-footer-b.png" alt="Tutorials Point">
+				</a>
+				<ul class="nav justify-content-center py-3 mt-md-0 ">
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/index.htm"><i class="fal fa-globe"></i> About us</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/return_refund_policy.htm"> <i class="fal fa-check"></i> Refund Policy</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/about_terms_of_use.htm"><i class="fal fa-check"></i> Terms of use</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/about_privacy.htm"> <i class="fal fa-shield-check"></i> Privacy Policy</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/faq.htm"><i class="fal fa-question-circle"></i> FAQ's</a></li>
+					<li class="nav-item"><a class="nav-link fw-bold" href="/about/contact_us.htm"><i class="fal fa-map-marker-alt"></i> Contact</a></li>
+				</ul>
+				<p class="small">© Copyright 2023. All Rights Reserved.</p>
+			</div>
+			<div id="privacy-banner">
+				<div>
+					<p>We make use of First and third party cookies to improve our user experience. By using this website, you agree with our Cookies Policy.
+						<a id="banner-accept" href="#">Agree</a>
+						<a id="banner-learn" href="/about/about_cookies.htm" target="_blank">Learn more</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<div class="back-top">
+<i class="fal fa-angle-up position-absolute top-50 start-50 translate-middle"></i>
+</div>
+<script data-cfasync="false">(function(w, d) { var s = d.createElement('script'); s.src = '//cdn.adpushup.com/40046/adpushup.js'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); })(window, document);</script>
+<script>(function(w,d){var adSlot=d.createElement("div");adSlot.className="ad-slot ad gpt-div-slot",adSlot.style="position: absolute; visibility: hidden;",adSlot.textContent="&nbsp;",d.body.appendChild(adSlot),setTimeout((function(){if(0===adSlot.clientHeight){var t=d.createElement("script");t.setAttribute("src","https://delivery.adrecover.com/18107/adRecover.js"),t.setAttribute("type","text/javascript"),t.setAttribute("async",!0),d.head.append(t)}}),0);})(window, document);</script>
+<script async src="/static/js/script-min.js?v=0.37"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EX9ZP4VY84"></script>
+<script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-EX9ZP4VY84');
+</script>
+<!-- Global site tag (gtag.js) - Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-664793816"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-664793816');
+</script>
+</body>
+</html>

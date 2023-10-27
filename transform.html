@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .conatiner{
+            background-color: red;
+            height: 40vh;
+           
+        }
+        .box{
+            /* transform: translate(344px);
+           
+            transform-origin:0;
+            transform: scaleX(); */
+            /* transform: scaleX(4); */
+            /* transform: skew(20deg,10deg); */
+            height: 40px;
+            width:40px; 
+            background-color: aqua;
+            margin: auto;
+            border: 2px solid black;
+            
+        }
+        .box:hover{
+            width: 100px;
+        }
+        .box{
+            transition-property:width;
+            transition-duration:0.5s;
+            transition-timing-function: ease-in;
+         
+            transition-delay: 0s;
+        }
+        img:hover{
+            width: 250px;
+            height:250px;
+            transition-property:all;
+            transition-duration:0.5s;
+           
+            transition-timing-function: ease-in;
+            transform: skew(20deg,10deg);
+
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+        <div class="box">
+        
+         </div>
+         <div class="box2">
+        <img src="image.webp" alt="" width="200px"height="200px">
+         </div>
+    </div>
+   
+</body>
+</html>
